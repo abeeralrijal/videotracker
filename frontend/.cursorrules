@@ -1,0 +1,24 @@
+# SentinelAI Frontend - Cursor Rules
+
+## Project context
+- Next.js 16 App Router, React 19, TypeScript, Tailwind CSS 4
+- AI video intelligence / security monitoring SaaS
+- Mock data in lib/api/; backend integration via apiFetch when ready
+
+## Code organization
+- app/ - Pages and app-specific components
+- app/components/ - Reusable UI (Header, icons, landing/, dashboard/)
+- hooks/ - Data hooks (useAlerts, useFootageSearch, etc.)
+- lib/api/ - API layer (client, alerts, footage, analytics, monitoring)
+- lib/ - types.ts, constants.ts
+- docs/ - ARCHITECTURE, API, COMPONENTS, CONTRIBUTING
+
+## Conventions
+- Use JSDoc for exported functions and components
+- Follow existing patterns in lib/api for new endpoints
+- Add sessionId parameter to API calls for future backend
+- Prefer hooks over inline fetch in components
+- Use "use client" only when component needs interactivity
+
+## Import aliases
+- @/ maps to project root (e.g. @/lib/api, @/hooks)
