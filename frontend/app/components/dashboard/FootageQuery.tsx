@@ -18,8 +18,8 @@ export function FootageQuery({
   return (
     <div className="space-y-3">
       <div className="flex items-center gap-2">
-        <SearchIcon className="h-5 w-5 text-zinc-500" />
-        <span className="text-sm font-medium text-zinc-700">
+        <SearchIcon className="h-5 w-5 text-amber-300" />
+        <span className="text-sm font-medium text-slate-200">
           Ask about this footage
         </span>
       </div>
@@ -29,12 +29,12 @@ export function FootageQuery({
           value={query}
           onChange={(e) => onQueryChange(e.target.value)}
           placeholder='e.g. "Any fights today?"'
-          className="flex-1 rounded-lg border border-zinc-300 px-4 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
+          className="input-field flex-1"
         />
         <button
           type="button"
           onClick={onSearch}
-          className="flex items-center gap-2 rounded-lg bg-zinc-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800"
+          className="btn-primary flex items-center gap-2 px-4 py-2.5 text-sm"
         >
           <SearchIcon className="h-4 w-4" />
           Search

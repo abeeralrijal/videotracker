@@ -25,3 +25,6 @@ export {
   fetchVideoSession,
 } from "./monitoring";
 export type { ProcessingStatus, VideoSession } from "./monitoring";
+
+export { uploadVideo, startMonitoring } from "./upload";
+export type { UploadResponse } from "./upload";

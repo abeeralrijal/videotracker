@@ -4,7 +4,7 @@
  * @module lib/api/client
  */
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 /** Shape of API error responses */
 export type ApiError = {
@@ -24,10 +24,12 @@ export async function apiFetch<T>(
   options?: RequestInit
 ): Promise<T> {
   const url = `${API_BASE_URL}${path}`;
+  const isFormData =
+    typeof FormData !== "undefined" && options?.body instanceof FormData;
   const response = await fetch(url, {
     ...options,
     headers: {
-      "Content-Type": "application/json",
+      ...(isFormData ? {} : { "Content-Type": "application/json" }),
       ...options?.headers,
     },
   });

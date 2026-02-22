@@ -1,4 +1,6 @@
+import { apiFetch } from "@/lib/api/client";
 import type { SearchResult } from "@/lib/types";
+import { eventToSearchResult } from "@/lib/api/transform";
 
 /**
  * Footage search API - natural language search over video content.
@@ -6,23 +8,27 @@ import type { SearchResult } from "@/lib/types";
  * @module lib/api/footage
  */
 
-const MOCK_SEARCH_RESULTS: SearchResult[] = [
-  {
-    id: "1",
-    label: "Possible fight",
-    timestamp: "0:42",
-    confidence: 82,
-  },
-];
+export type FootageSearchResponse = {
+  answer: string;
+  results: SearchResult[];
+};
 
 /** Search footage by natural language query (e.g. "Any fights today?") */
 export async function searchFootage(
-  _query: string,
-  _sessionId?: string
-): Promise<SearchResult[]> {
-  // TODO: return apiFetch<SearchResult[]>(`/sessions/${sessionId}/search`, {
-  //   method: 'POST',
-  //   body: JSON.stringify({ query }),
-  // });
-  return [...MOCK_SEARCH_RESULTS];
+  query: string,
+  sessionId?: string,
+  mode: "monitor" | "ask" = "monitor"
+): Promise<FootageSearchResponse> {
+  const data = await apiFetch<{ answer: string; results: any[] }>("/api/search", {
+    method: "POST",
+    body: JSON.stringify({
+      query,
+      video_id: sessionId ?? undefined,
+      mode,
+    }),
+  });
+  return {
+    answer: data.answer ?? "",
+    results: (data.results ?? []).map(eventToSearchResult),
+  };
 }

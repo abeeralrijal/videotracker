@@ -49,10 +49,10 @@ export function VideoUpload({ file, onFileChange }: VideoUploadProps) {
 
   return (
     <label
-      className={`flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed px-6 py-12 transition-colors ${
+      className={`flex cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed px-6 py-12 transition-all ${
         isDragging
-          ? "border-zinc-500 bg-zinc-100"
-          : "border-zinc-300 bg-white hover:border-zinc-400 hover:bg-zinc-50"
+          ? "border-amber-400 bg-amber-400/10 shadow-[0_0_0_1px_rgba(251,191,36,0.2)]"
+          : "border-slate-700/70 bg-slate-900/50 hover:border-slate-600 hover:bg-slate-900/70"
       }`}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
@@ -64,11 +64,11 @@ export function VideoUpload({ file, onFileChange }: VideoUploadProps) {
         onChange={handleFileChange}
         className="hidden"
       />
-      <UploadIcon className="mb-3 h-12 w-12 text-zinc-400" />
-      <span className="text-center text-sm font-medium text-zinc-700">
+      <UploadIcon className="mb-3 h-12 w-12 text-amber-300" />
+      <span className="text-center text-sm font-medium text-slate-100">
         {file ? file.name : "Drag & drop video here or click to upload"}
       </span>
-      <span className="mt-1 text-xs text-zinc-500">
+      <span className="mt-1 text-xs text-slate-400">
         Supports: MP4, AVI, MOV
       </span>
     </label>

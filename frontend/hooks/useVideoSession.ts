@@ -12,8 +12,8 @@ interface UseVideoSessionOptions {
 /** Fetches video session (duration, current time, URL). setCurrentTime for seeking. */
 export function useVideoSession(options: UseVideoSessionOptions = {}) {
   const { sessionId, enabled = true } = options;
-  const [duration, setDuration] = useState(150);
-  const [currentTime, setCurrentTime] = useState(42);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
   const [videoUrl, setVideoUrl] = useState<string | undefined>();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);

@@ -1,4 +1,6 @@
+import { apiFetch } from "@/lib/api/client";
 import type { Alert } from "@/lib/types";
+import { eventToAlert } from "@/lib/api/transform";
 
 /**
  * Alerts API - fetch, confirm, dismiss, and review AI-detected alerts.
@@ -6,40 +8,13 @@ import type { Alert } from "@/lib/types";
  * @module lib/api/alerts
  */
 
-const MOCK_ALERTS: Alert[] = [
-  {
-    id: "1",
-    type: "Fight detected",
-    timestamp: "0:42",
-    confidence: 82,
-    status: "Pending",
-    description: "Two individuals in physical altercation near entrance",
-    severity: "HIGH",
-  },
-  {
-    id: "2",
-    type: "Suspicious loitering",
-    timestamp: "1:15",
-    confidence: 65,
-    status: "Pending",
-    description: "Person lingering near restricted area",
-    severity: "MED",
-  },
-  {
-    id: "3",
-    type: "Unattended bag",
-    timestamp: "1:48",
-    confidence: 45,
-    status: "Pending",
-    description: "Bag left unattended for extended period",
-    severity: "LOW",
-  },
-];
-
 /** Fetch all alerts for a monitoring session */
 export async function fetchAlerts(_sessionId?: string): Promise<Alert[]> {
-  // TODO: return apiFetch<Alert[]>(`/sessions/${sessionId}/alerts`);
-  return [...MOCK_ALERTS];
+  const params = new URLSearchParams();
+  if (_sessionId) params.set("video_id", _sessionId);
+  const path = params.toString() ? `/api/events?${params}` : "/api/events";
+  const data = await apiFetch<any[]>(path);
+  return data.map(eventToAlert);
 }
 
 /** Mark an alert as confirmed by the operator */
@@ -47,10 +22,13 @@ export async function confirmAlert(
   alertId: string,
   _sessionId?: string
 ): Promise<Alert> {
-  // TODO: return apiFetch<Alert>(`/alerts/${alertId}/confirm`, { method: 'POST' });
-  const alert = MOCK_ALERTS.find((a) => a.id === alertId);
-  if (!alert) throw new Error("Alert not found");
-  return { ...alert, status: "Confirmed" };
+  const data = await apiFetch<any>(`/api/events/${alertId}/review`, {
+    method: "POST",
+    body: JSON.stringify({
+      status: "confirmed",
+    }),
+  });
+  return eventToAlert({ ...data, id: alertId, status: "confirmed" });
 }
 
 /** Mark an alert as dismissed (false alarm) */
@@ -58,10 +36,13 @@ export async function dismissAlert(
   alertId: string,
   _sessionId?: string
 ): Promise<Alert> {
-  // TODO: return apiFetch<Alert>(`/alerts/${alertId}/dismiss`, { method: 'POST' });
-  const alert = MOCK_ALERTS.find((a) => a.id === alertId);
-  if (!alert) throw new Error("Alert not found");
-  return { ...alert, status: "Dismissed" };
+  const data = await apiFetch<any>(`/api/events/${alertId}/review`, {
+    method: "POST",
+    body: JSON.stringify({
+      status: "dismissed",
+    }),
+  });
+  return eventToAlert({ ...data, id: alertId, status: "dismissed" });
 }
 
 /** Input for submitting an alert review */
@@ -77,11 +58,13 @@ export async function submitAlertReview(
   review: AlertReviewInput,
   _sessionId?: string
 ): Promise<Alert> {
-  // TODO: return apiFetch<Alert>(`/alerts/${alertId}/review`, {
-  //   method: 'POST',
-  //   body: JSON.stringify(review),
-  // });
-  const alert = MOCK_ALERTS.find((a) => a.id === alertId);
-  if (!alert) throw new Error("Alert not found");
-  return { ...alert, status: "Confirmed" };
+  const data = await apiFetch<any>(`/api/events/${alertId}/review`, {
+    method: "POST",
+    body: JSON.stringify({
+      status: review.wasCorrect ? "confirmed" : "dismissed",
+      severity: review.severity.toLowerCase(),
+      reviewer_notes: review.notes,
+    }),
+  });
+  return eventToAlert({ ...data, id: alertId });
 }

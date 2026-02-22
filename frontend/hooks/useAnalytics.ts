@@ -9,11 +9,12 @@ interface UseAnalyticsOptions {
   enabled?: boolean;
   from?: string;
   to?: string;
+  videoId?: string;
 }
 
 /** Fetches analytics summary and event type breakdown. */
 export function useAnalytics(options: UseAnalyticsOptions = {}) {
-  const { enabled = true, from, to } = options;
+  const { enabled = true, from, to, videoId } = options;
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
@@ -23,7 +24,7 @@ export function useAnalytics(options: UseAnalyticsOptions = {}) {
     setIsLoading(true);
     setError(null);
     try {
-      const result = await fetchAnalytics({ from, to });
+      const result = await fetchAnalytics({ from, to, videoId });
       setData(result);
     } catch (e) {
       setError(

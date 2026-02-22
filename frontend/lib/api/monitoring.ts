@@ -1,14 +1,17 @@
 /**
  * Monitoring session API - processing status and video playback info.
- * Currently uses mock data. Replace with apiFetch() when backend is ready.
+ * Backend integration for processing status and video info.
  * @module lib/api/monitoring
  */
+
+import { apiFetch, API_BASE_URL } from "@/lib/api/client";
 
 /** Video processing progress */
 export interface ProcessingStatus {
   progress: number;
   chunksAnalyzed: number;
   totalChunks: number;
+  failedChunks?: number;
 }
 
 /** Active video session metadata */
@@ -20,23 +23,29 @@ export interface VideoSession {
 
 /** Fetch current processing progress (chunks analyzed) */
 export async function fetchProcessingStatus(
-  _sessionId?: string
+  sessionId?: string
 ): Promise<ProcessingStatus> {
-  // TODO: return apiFetch<ProcessingStatus>(`/sessions/${sessionId}/processing`);
-  return {
-    progress: 80,
-    chunksAnalyzed: 8,
-    totalChunks: 10,
-  };
+  if (!sessionId) {
+    return { progress: 0, chunksAnalyzed: 0, totalChunks: 0 };
+  }
+  return apiFetch<ProcessingStatus>(`/api/videos/${sessionId}/processing`);
 }
 
 /** Fetch video session (duration, current time, stream URL) */
 export async function fetchVideoSession(
-  _sessionId?: string
+  sessionId?: string
 ): Promise<VideoSession> {
-  // TODO: return apiFetch<VideoSession>(`/sessions/${sessionId}`);
+  if (!sessionId) {
+    return { duration: 0 };
+  }
+  const data = await apiFetch<{ source_url?: string; duration_seconds?: number }>(
+    `/api/videos/${sessionId}`
+  );
   return {
-    duration: 150,
-    currentTime: 42,
+    duration: Math.round(data.duration_seconds ?? 0),
+    currentTime: 0,
+    videoUrl: data.source_url
+      ? `${API_BASE_URL}${data.source_url}`
+      : undefined,
   };
 }

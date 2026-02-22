@@ -21,6 +21,7 @@ export function useProcessingStatus(options: UseProcessingStatusOptions = {}) {
     progress: 0,
     chunksAnalyzed: 0,
     totalChunks: 0,
+    failedChunks: 0,
   });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
@@ -54,6 +55,7 @@ export function useProcessingStatus(options: UseProcessingStatusOptions = {}) {
     progress: status.progress,
     chunksAnalyzed: status.chunksAnalyzed,
     totalChunks: status.totalChunks,
+    failedChunks: status.failedChunks ?? 0,
     isLoading,
     error,
     refetch: load,

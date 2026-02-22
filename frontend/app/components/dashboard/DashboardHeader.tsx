@@ -2,61 +2,58 @@
 
 import Link from "next/link";
 import { ShieldIcon, BarChartIcon } from "../icons";
-import { USE_CASES, type UseCaseValue } from "@/lib/constants";
 
 /** Props for DashboardHeader */
 interface DashboardHeaderProps {
-  useCase: UseCaseValue;
-  onUseCaseChange: (value: UseCaseValue) => void;
   onStop: () => void;
+  mode?: "monitor" | "ask";
+  videoId?: string;
 }
 
 /** Dashboard header: logo, use case selector, monitoring status, Event History link, Stop button. */
 export function DashboardHeader({
-  useCase,
-  onUseCaseChange,
   onStop,
+  mode = "monitor",
+  videoId,
 }: DashboardHeaderProps) {
+  const isAskMode = mode === "ask";
   return (
-    <header className="flex items-center justify-between gap-4 border-b border-zinc-200 px-6 py-4">
+    <header className="sticky top-0 z-40 flex items-center justify-between gap-4 border-b border-slate-800/70 bg-slate-950/70 px-6 py-4 backdrop-blur">
       <div className="flex items-center gap-4">
         <Link href="/" className="flex items-center gap-2">
-          <ShieldIcon className="h-6 w-6 text-red-500" />
-          <span className="text-xl font-semibold tracking-tight text-zinc-900">
+          <ShieldIcon className="h-6 w-6 text-amber-400" />
+          <span className="text-xl font-semibold tracking-tight text-slate-100">
             SentinelAI
           </span>
         </Link>
-        <select
-          value={useCase}
-          onChange={(e) => onUseCaseChange(e.target.value as UseCaseValue)}
-          className="rounded-md border border-zinc-300 bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
-        >
-          {USE_CASES.map((uc) => (
-            <option key={uc.value} value={uc.value}>
-              {uc.label}
-            </option>
-          ))}
-        </select>
       </div>
       <div className="flex items-center gap-4">
-        <Link
-          href="/analytics"
-          className="flex items-center gap-2 rounded-md border border-zinc-300 px-3 py-1.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50"
-        >
-          <BarChartIcon className="h-4 w-4" />
-          Event History
-        </Link>
-        <span className="flex items-center gap-2 text-sm font-medium text-emerald-600">
-          <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
-          MONITORING
-        </span>
+        {!isAskMode && (
+          <Link
+            href={videoId ? `/analytics?videoId=${videoId}` : "/analytics"}
+            className="btn-secondary flex items-center gap-2 px-3 py-1.5 text-sm"
+          >
+            <BarChartIcon className="h-4 w-4" />
+            Event History
+          </Link>
+        )}
+        {isAskMode ? (
+          <span className="badge border-amber-400/40 bg-amber-400/10 text-amber-200">
+            Ask Mode
+          </span>
+        ) : (
+          <span className="flex items-center gap-2 text-sm font-medium text-emerald-300">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
+            MONITORING
+          </span>
+        )}
         <button
           type="button"
           onClick={onStop}
-          className="flex items-center gap-1.5 rounded-md border border-zinc-300 px-3 py-1.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-100"
+          className="btn-ghost flex items-center gap-1.5 px-3 py-1.5 text-sm"
         >
-          <span className="text-zinc-500">■</span>
-          Stop
+          <span className="text-slate-400">■</span>
+          {isAskMode ? "Exit" : "Stop"}
         </button>
       </div>
     </header>

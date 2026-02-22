@@ -1,30 +1,42 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { clearSession, isAuthed } from "@/lib/session";
+import { useRouter } from "next/navigation";
 import { ShieldIcon } from "./icons";
 
-/** Shared header with logo and auth links (Sign In / Sign Up). */
+/** Shared header with logo only. */
 export function Header() {
+  const router = useRouter();
+  const [authed, setAuthed] = useState(false);
+
+  useEffect(() => {
+    setAuthed(isAuthed());
+  }, []);
+
   return (
-    <header className="flex items-center justify-between border-b border-zinc-200 px-6 py-5">
+    <header className="sticky top-0 z-40 flex items-center justify-between border-b border-slate-800/70 bg-slate-950/70 px-6 py-5 backdrop-blur">
       <Link href="/" className="flex items-center gap-2">
-        <ShieldIcon className="h-6 w-6 text-red-500" />
-        <span className="text-xl font-semibold tracking-tight text-zinc-900">
+        <ShieldIcon className="h-6 w-6 text-amber-400" />
+        <span className="text-xl font-semibold tracking-tight text-slate-100">
           SentinelAI
         </span>
+        <span className="badge">Security Ops</span>
       </Link>
-      <div className="flex items-center gap-2">
-        <Link
-          href="/signup"
-          className="rounded-md px-4 py-2 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900"
+      {authed && (
+        <button
+          type="button"
+          onClick={() => {
+            clearSession();
+            setAuthed(false);
+            router.replace("/login");
+          }}
+          className="btn-ghost px-3 py-1.5 text-xs"
         >
-          Sign Up
-        </Link>
-        <Link
-          href="/login"
-          className="rounded-md border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50"
-        >
-          Sign In
-        </Link>
-      </div>
+          Log out
+        </button>
+      )}
     </header>
   );
 }

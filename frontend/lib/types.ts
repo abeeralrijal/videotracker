@@ -18,6 +18,8 @@ export interface Alert {
   status: "Pending" | "Confirmed" | "Dismissed";
   description: string;
   severity: AlertSeverity;
+  videoId?: string;
+  chunkFilename?: string;
 }
 
 /** Search result from natural language footage query */
@@ -26,4 +28,5 @@ export interface SearchResult {
   label: string;
   timestamp: string;
   confidence: number;
+  snippet?: string;
 }

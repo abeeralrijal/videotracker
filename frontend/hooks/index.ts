@@ -8,3 +8,4 @@ export { useFootageSearch } from "./useFootageSearch";
 export { useAnalytics } from "./useAnalytics";
 export { useProcessingStatus } from "./useProcessingStatus";
 export { useVideoSession } from "./useVideoSession";
+export { useAuthGuard } from "./useAuthGuard";

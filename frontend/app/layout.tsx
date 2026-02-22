@@ -1,24 +1,26 @@
 /**
- * Root layout. Provides fonts (Geist) and app-wide metadata.
+ * Root layout. Provides fonts and app-wide metadata.
  */
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-sentinel-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceMono = Space_Mono({
+  variable: "--font-sentinel-mono",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "SentinelAI - AI-Powered Video Intelligence",
-  description: "Detect what matters. Verify instantly.",
+  title: "SentinelAI - Security Ops Intelligence",
+  description: "From footage to actionable security intelligence in minutes.",
 };
 
 export default function RootLayout({
@@ -29,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased`}
       >
         {children}
       </body>

@@ -1,0 +1,280 @@
+0 verbose cli /opt/homebrew/Cellar/node/25.2.1/bin/node /opt/homebrew/bin/npm
+1 info using npm@11.6.2
+2 info using node@v25.2.1
+3 silly config load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/gaurabh/Documents/BisonHack/videotracker/frontend/.npmrc
+5 silly config load:file:/Users/gaurabh/.npmrc
+6 silly config load:file:/opt/homebrew/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install"
+9 verbose logfile logs-max:10 dir:/Users/gaurabh/Documents/BisonHack/videotracker/frontend/.npm-cache/_logs/2026-02-21T19_42_10_143Z-
+10 verbose logfile /Users/gaurabh/Documents/BisonHack/videotracker/frontend/.npm-cache/_logs/2026-02-21T19_42_10_143Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 silly idealTree buildDeps
+14 silly reify mark retired [
+14 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/acorn'
+14 silly reify ]
+15 silly reify mark retired [
+15 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/ajv'
+15 silly reify ]
+16 silly reify mark retired [
+16 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/balanced-match'
+16 silly reify ]
+17 silly reify mark retired [
+17 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/baseline-browser-mapping'
+17 silly reify ]
+18 silly reify mark retired [
+18 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/brace-expansion'
+18 silly reify ]
+19 silly reify mark retired [
+19 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/caniuse-lite'
+19 silly reify ]
+20 silly reify mark retired [
+20 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/debug'
+20 silly reify ]
+21 silly reify mark retired [
+21 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/detect-libc'
+21 silly reify ]
+22 silly reify mark retired [
+22 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/enhanced-resolve'
+22 silly reify ]
+23 silly reify mark retired [
+23 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/eslint'
+23 silly reify ]
+24 silly reify mark retired [
+24 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/eslint-config-next'
+24 silly reify ]
+25 silly reify mark retired [
+25 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/eslint-scope'
+25 silly reify ]
+26 silly reify mark retired [
+26 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/eslint-visitor-keys'
+26 silly reify ]
+27 silly reify mark retired [
+27 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/espree'
+27 silly reify ]
+28 silly reify mark retired [
+28 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/esquery'
+28 silly reify ]
+29 silly reify mark retired [
+29 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/flatted'
+29 silly reify ]
+30 silly reify mark retired [
+30 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/jiti'
+30 silly reify ]
+31 silly reify mark retired [
+31 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/lightningcss-darwin-arm64'
+31 silly reify ]
+32 silly reify mark retired [
+32 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/lightningcss'
+32 silly reify ]
+33 silly reify mark retired [
+33 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/magic-string'
+33 silly reify ]
+34 silly reify mark retired [
+34 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/minimatch'
+34 silly reify ]
+35 silly reify mark retired [
+35 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/nanoid'
+35 silly reify ]
+36 silly reify mark retired [
+36 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/next'
+36 silly reify ]
+37 silly reify mark retired [
+37 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/postcss'
+37 silly reify ]
+38 silly reify mark retired [
+38 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/react'
+38 silly reify ]
+39 silly reify mark retired [
+39 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/react-dom'
+39 silly reify ]
+40 silly reify mark retired [
+40 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/sharp'
+40 silly reify ]
+41 silly reify mark retired [
+41 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/tailwindcss'
+41 silly reify ]
+42 silly reify mark retired [
+42 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/tapable'
+42 silly reify ]
+43 silly reify mark retired [
+43 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/typescript'
+43 silly reify ]
+44 silly reify mark retired [
+44 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/undici-types'
+44 silly reify ]
+45 silly reify mark retired [
+45 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/which'
+45 silly reify ]
+46 silly reify mark retired [
+46 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/config-array'
+46 silly reify ]
+47 silly reify mark retired [
+47 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/config-helpers'
+47 silly reify ]
+48 silly reify mark retired [
+48 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/object-schema'
+48 silly reify ]
+49 silly reify mark retired [
+49 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/plugin-kit'
+49 silly reify ]
+50 silly reify mark retired [
+50 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/core'
+50 silly reify ]
+51 silly reify mark retired [
+51 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@emnapi/runtime'
+51 silly reify ]
+52 silly reify mark retired [
+52 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint-community/regexpp'
+52 silly reify ]
+53 silly reify mark retired [
+53 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint-community/eslint-utils'
+53 silly reify ]
+54 silly reify mark retired [
+54 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@humanfs/node'
+54 silly reify ]
+55 silly reify mark retired [
+55 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@humanwhocodes/retry'
+55 silly reify ]
+56 silly reify mark retired [
+56 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@img/colour'
+56 silly reify ]
+57 silly reify mark retired [
+57 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@img/sharp-darwin-arm64'
+57 silly reify ]
+58 silly reify mark retired [
+58 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@img/sharp-libvips-darwin-arm64'
+58 silly reify ]
+59 silly reify mark retired [
+59 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@jridgewell/gen-mapping'
+59 silly reify ]
+60 silly reify mark retired [
+60 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@jridgewell/remapping'
+60 silly reify ]
+61 silly reify mark retired [
+61 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@jridgewell/sourcemap-codec'
+61 silly reify ]
+62 silly reify mark retired [
+62 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@jridgewell/trace-mapping'
+62 silly reify ]
+63 silly reify mark retired [
+63 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@next/env'
+63 silly reify ]
+64 silly reify mark retired [
+64 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@next/swc-darwin-arm64'
+64 silly reify ]
+65 silly reify mark retired [
+65 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@tailwindcss/node'
+65 silly reify ]
+66 silly reify mark retired [
+66 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@tailwindcss/oxide-darwin-arm64'
+66 silly reify ]
+67 silly reify mark retired [
+67 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@tailwindcss/oxide'
+67 silly reify ]
+68 silly reify mark retired [
+68 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@tailwindcss/postcss'
+68 silly reify ]
+69 silly reify mark retired [
+69 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/estree'
+69 silly reify ]
+70 silly reify mark retired [
+70 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/esrecurse'
+70 silly reify ]
+71 silly reify mark retired [
+71 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/node'
+71 silly reify ]
+72 silly reify mark retired [
+72 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/react'
+72 silly reify ]
+73 silly reify mark retired [
+73 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/react-dom'
+73 silly reify ]
+74 silly reify moves {
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/acorn': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.acorn-2yEYg5UU',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/ajv': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.ajv-ypEGgD9r',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/balanced-match': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.balanced-match-jijtzNzK',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/baseline-browser-mapping': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.baseline-browser-mapping-I3WoYpI0',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/brace-expansion': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.brace-expansion-Iz7zg2ZP',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/caniuse-lite': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.caniuse-lite-o1CtC8F0',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/debug': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.debug-5KxOxa97',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/detect-libc': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.detect-libc-v8SL0NUp',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/enhanced-resolve': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.enhanced-resolve-ZhVFDvYe',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/eslint': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.eslint-idQqTBxC',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/eslint-config-next': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.eslint-config-next-xFFJQNiY',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/eslint-scope': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.eslint-scope-Eft27D0i',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/eslint-visitor-keys': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.eslint-visitor-keys-F9LTsX2V',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/espree': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.espree-5itDtsHA',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/esquery': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.esquery-7OXvvZda',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/flatted': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.flatted-ybB6BZJ8',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/jiti': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.jiti-OgUmaSmp',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/lightningcss-darwin-arm64': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.lightningcss-darwin-arm64-XJlr2iTU',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/lightningcss': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.lightningcss-nc0HYprr',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/magic-string': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.magic-string-e9UkOejq',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/minimatch': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.minimatch-p4z99QRW',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/nanoid': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.nanoid-6xFxP7rt',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/next': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.next-GPpyzfS0',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/postcss': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.postcss-HnjjT22i',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/react': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.react-OROyciVO',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/react-dom': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.react-dom-Fua1qBtl',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/sharp': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.sharp-ERRpEMUo',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/tailwindcss': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.tailwindcss-tSgPZIfj',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/tapable': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.tapable-CNdFtAZb',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/typescript': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.typescript-pQ83LePp',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/undici-types': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.undici-types-GF1ukPDi',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/which': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.which-k3IAMjPw',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/config-array': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/.config-array-6sJ9s1fe',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/config-helpers': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/.config-helpers-oGLE8on7',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/object-schema': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/.object-schema-Bcvxy1Vw',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/plugin-kit': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/.plugin-kit-nOD01KCd',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/core': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint/.core-kNmh9y8C',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@emnapi/runtime': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@emnapi/.runtime-mflikKG6',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint-community/regexpp': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint-community/.regexpp-ZDRyYz32',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint-community/eslint-utils': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@eslint-community/.eslint-utils-EEVWSAhA',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@humanfs/node': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@humanfs/.node-CHaYaC0h',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@humanwhocodes/retry': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@humanwhocodes/.retry-Bwz2qKkn',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@img/colour': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@img/.colour-Qdzau15B',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@img/sharp-darwin-arm64': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@img/.sharp-darwin-arm64-ktbKRhEK',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@img/sharp-libvips-darwin-arm64': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@img/.sharp-libvips-darwin-arm64-xipiV4TM',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@jridgewell/gen-mapping': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@jridgewell/.gen-mapping-jZ9hiQm3',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@jridgewell/remapping': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@jridgewell/.remapping-tccP5jFD',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@jridgewell/sourcemap-codec': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@jridgewell/.sourcemap-codec-F8AA97ry',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@jridgewell/trace-mapping': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@jridgewell/.trace-mapping-31p8v5RR',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@next/env': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@next/.env-MvNB49Ph',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@next/swc-darwin-arm64': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@next/.swc-darwin-arm64-1dN6yIzn',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@tailwindcss/node': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@tailwindcss/.node-mUcHIvuW',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@tailwindcss/oxide-darwin-arm64': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@tailwindcss/.oxide-darwin-arm64-uAuYeen4',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@tailwindcss/oxide': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@tailwindcss/.oxide-VfRCqpaF',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@tailwindcss/postcss': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@tailwindcss/.postcss-fi2teDN6',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/estree': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/.estree-2It6GX2q',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/esrecurse': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/.esrecurse-aOPNRc5s',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/node': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/.node-DWWNGtFP',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/react': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/.react-j48pzW8l',
+74 silly reify   '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/react-dom': '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/@types/.react-dom-Tv2JGvXu'
+74 silly reify }
+75 verbose stack Error: ENOTEMPTY: directory not empty, rename '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/nanoid' -> '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.nanoid-6xFxP7rt'
+75 verbose stack     at async Object.rename (node:internal/fs/promises:786:10)
+75 verbose stack     at async moveFile (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/fs/lib/move-file.js:30:5)
+75 verbose stack     at async Promise.allSettled (index 21)
+75 verbose stack     at async [reifyPackages] (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:313:11)
+75 verbose stack     at async Arborist.reify (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:125:5)
+75 verbose stack     at async Install.exec (/opt/homebrew/lib/node_modules/npm/lib/commands/install.js:150:5)
+75 verbose stack     at async Npm.exec (/opt/homebrew/lib/node_modules/npm/lib/npm.js:208:9)
+75 verbose stack     at async module.exports (/opt/homebrew/lib/node_modules/npm/lib/cli/entry.js:67:5)
+76 error code ENOTEMPTY
+77 error syscall rename
+78 error path /Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/nanoid
+79 error dest /Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.nanoid-6xFxP7rt
+80 error errno -66
+81 error ENOTEMPTY: directory not empty, rename '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/nanoid' -> '/Users/gaurabh/Documents/BisonHack/videotracker/frontend/node_modules/.nanoid-6xFxP7rt'
+82 silly unfinished npm timer reify 1771702930366
+83 silly unfinished npm timer reify:retireShallow 1771702930412
+84 verbose cwd /Users/gaurabh/Documents/BisonHack/videotracker/frontend
+85 verbose os Darwin 25.3.0
+86 verbose node v25.2.1
+87 verbose npm  v11.6.2
+88 verbose exit -66
+89 verbose code -66
+90 error A complete log of this run can be found in: /Users/gaurabh/Documents/BisonHack/videotracker/frontend/.npm-cache/_logs/2026-02-21T19_42_10_143Z-debug-0.log

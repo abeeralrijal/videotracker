@@ -5,9 +5,9 @@
  * Uses hooks for data (useAlerts, useFootageSearch, useProcessingStatus, useVideoSession).
  */
 
-import { useState, useCallback } from "react";
-import { useRouter } from "next/navigation";
-import { DashboardHeader } from "@/app/components/dashboard/DashboardHeader";
+import { useState, useCallback, useMemo, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { AppShell } from "@/app/components/layout/AppShell";
 import { VideoPlayer } from "@/app/components/dashboard/VideoPlayer";
 import { ProcessingStatus } from "@/app/components/dashboard/ProcessingStatus";
 import { FootageQuery } from "@/app/components/dashboard/FootageQuery";
@@ -19,17 +19,30 @@ import {
   useFootageSearch,
   useProcessingStatus,
   useVideoSession,
+  useAuthGuard,
 } from "@/hooks";
-import type { UseCaseValue } from "@/lib/constants";
 import type { Alert, SearchResult } from "@/lib/types";
+import { getLastSessionId, setLastSessionId } from "@/lib/session";
 
 export default function DashboardPage() {
+  useAuthGuard();
   const router = useRouter();
-  const [useCase, setUseCase] = useState<UseCaseValue>("campus-safety");
+  const searchParams = useSearchParams();
   const [reviewingAlert, setReviewingAlert] = useState<Alert | null>(null);
 
-  // TODO: Get sessionId from URL or monitoring start (e.g. /dashboard/[sessionId])
-  const sessionId = undefined;
+  const sessionId = useMemo(() => searchParams.get("videoId") ?? undefined, [searchParams]);
+  const hasSession = Boolean(sessionId);
+
+  useEffect(() => {
+    if (sessionId) {
+      setLastSessionId(sessionId);
+      return;
+    }
+    const last = getLastSessionId();
+    if (last) {
+      router.replace(`/dashboard?videoId=${last}`);
+    }
+  }, [sessionId, router]);
 
   const {
     alerts,
@@ -42,24 +55,30 @@ export default function DashboardPage() {
     query,
     setQuery,
     results: searchResults,
+    answer: searchAnswer,
+    isLoading: searchLoading,
+    error: searchError,
     search,
   } = useFootageSearch({
     sessionId,
     initialQuery: "Any fights today?",
+    searchOnMount: hasSession,
+    mode: "monitor",
   });
 
   const {
     progress,
     chunksAnalyzed,
     totalChunks,
-  } = useProcessingStatus({ sessionId });
+    failedChunks,
+  } = useProcessingStatus({ sessionId, enabled: hasSession, pollInterval: 2000 });
 
   const {
     duration,
     currentTime,
     setCurrentTime,
     videoUrl,
-  } = useVideoSession({ sessionId });
+  } = useVideoSession({ sessionId, enabled: hasSession });
 
   const handleStop = useCallback(() => {
     router.push("/");
@@ -95,16 +114,29 @@ export default function DashboardPage() {
   );
 
   return (
-    <div className="min-h-screen bg-zinc-50 font-sans">
-      <DashboardHeader
-        useCase={useCase}
-        onUseCaseChange={setUseCase}
-        onStop={handleStop}
-      />
-
-      <main className="mx-auto max-w-7xl px-6 py-8">
+    <AppShell
+      title="Monitoring"
+      subtitle="Live Triage"
+      status={
+        <span className="flex items-center gap-2 text-sm font-medium text-emerald-300">
+          <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
+          MONITORING
+        </span>
+      }
+      actions={
+        <button
+          type="button"
+          onClick={handleStop}
+          className="btn-ghost flex items-center gap-1.5 px-3 py-1.5 text-sm"
+        >
+          <span className="text-slate-400">■</span>
+          Stop
+        </button>
+      }
+    >
+      <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-2">
-          <div className="space-y-6 rounded-xl border-2 border-dashed border-zinc-300 bg-white p-6">
+          <div className="panel space-y-6 p-6">
             <VideoPlayer
               src={videoUrl}
               currentTime={currentTime}
@@ -115,10 +147,11 @@ export default function DashboardPage() {
               progress={progress}
               chunksAnalyzed={chunksAnalyzed}
               totalChunks={totalChunks}
+              failedChunks={failedChunks}
             />
           </div>
 
-          <div className="space-y-6 rounded-xl border-2 border-dashed border-zinc-300 bg-white p-6">
+          <div className="panel space-y-6 p-6">
             <FootageQuery
               query={query}
               onQueryChange={setQuery}
@@ -126,12 +159,15 @@ export default function DashboardPage() {
             />
             <SearchResults
               results={searchResults}
+              answer={searchAnswer}
+              isLoading={searchLoading}
+              error={searchError ? searchError.message : null}
               onPlayClip={handlePlayClipFromResult}
             />
           </div>
         </div>
 
-        <div className="mt-8 rounded-xl border-2 border-dashed border-zinc-300 bg-white p-6">
+        <div className="panel mt-8 p-6">
           <LiveAlerts
             alerts={alerts}
             onPlayClip={handlePlayClipFromAlert}
@@ -140,7 +176,7 @@ export default function DashboardPage() {
             onReview={handleReviewAlert}
           />
         </div>
-      </main>
+      </div>
 
       {reviewingAlert && (
         <AlertReviewModal
@@ -149,6 +185,6 @@ export default function DashboardPage() {
           onSubmit={handleSubmitReview}
         />
       )}
-    </div>
+    </AppShell>
   );
 }

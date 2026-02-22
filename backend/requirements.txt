@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+pymongo
+sse-starlette
+google-generativeai
+python-multipart
+pydantic
+Pillow

@@ -6,11 +6,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Header } from "@/app/components/Header";
+import { setAuthed } from "@/lib/session";
 
 export default function SignUpPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,31 +34,33 @@ export default function SignUpPage() {
       setError("Password must be at least 8 characters");
       return;
     }
+    setAuthed(email);
     // Placeholder - wire to auth API later
-    router.push("/dashboard");
+    const next = searchParams.get("next");
+    router.push(next || "/");
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen text-slate-100">
       <Header />
 
       <main className="mx-auto flex min-h-[calc(100vh-80px)] max-w-md flex-col items-center justify-center px-6 py-12">
         <div className="w-full space-y-8">
           <div className="text-center">
-            <h1 className="text-2xl font-bold tracking-tight text-zinc-900">
+            <h1 className="text-2xl font-bold tracking-tight text-slate-100">
               Create your account
             </h1>
-            <p className="mt-2 text-sm text-zinc-600">
+            <p className="mt-2 text-sm text-slate-400">
               Get started with SentinelAI video intelligence
             </p>
           </div>
 
           <form
             onSubmit={handleSubmit}
-            className="rounded-xl border-2 border-dashed border-zinc-300 bg-zinc-50/50 p-8"
+            className="panel-outline p-8"
           >
             {error && (
-              <div className="mb-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600">
+              <div className="mb-4 rounded-lg bg-red-500/10 px-4 py-3 text-sm text-red-300">
                 {error}
               </div>
             )}
@@ -64,7 +68,7 @@ export default function SignUpPage() {
               <div>
                 <label
                   htmlFor="name"
-                  className="mb-2 block text-sm font-medium text-zinc-700"
+                  className="mb-2 block text-sm font-medium text-slate-200"
                 >
                   Full name
                 </label>
@@ -75,13 +79,13 @@ export default function SignUpPage() {
                   onChange={(e) => setName(e.target.value)}
                   autoComplete="name"
                   placeholder="John Doe"
-                  className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
+                  className="input-field"
                 />
               </div>
               <div>
                 <label
                   htmlFor="email"
-                  className="mb-2 block text-sm font-medium text-zinc-700"
+                  className="mb-2 block text-sm font-medium text-slate-200"
                 >
                   Email
                 </label>
@@ -92,13 +96,13 @@ export default function SignUpPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   autoComplete="email"
                   placeholder="you@example.com"
-                  className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
+                  className="input-field"
                 />
               </div>
               <div>
                 <label
                   htmlFor="password"
-                  className="mb-2 block text-sm font-medium text-zinc-700"
+                  className="mb-2 block text-sm font-medium text-slate-200"
                 >
                   Password
                 </label>
@@ -109,16 +113,16 @@ export default function SignUpPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   autoComplete="new-password"
                   placeholder="••••••••"
-                  className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
+                  className="input-field"
                 />
-                <p className="mt-1 text-xs text-zinc-500">
+                <p className="mt-1 text-xs text-slate-500">
                   Must be at least 8 characters
                 </p>
               </div>
               <div>
                 <label
                   htmlFor="confirmPassword"
-                  className="mb-2 block text-sm font-medium text-zinc-700"
+                  className="mb-2 block text-sm font-medium text-slate-200"
                 >
                   Confirm password
                 </label>
@@ -129,21 +133,21 @@ export default function SignUpPage() {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   autoComplete="new-password"
                   placeholder="••••••••"
-                  className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
+                  className="input-field"
                 />
               </div>
               <button
                 type="submit"
-                className="flex w-full items-center justify-center rounded-lg bg-zinc-900 px-6 py-3 font-medium text-white transition-colors hover:bg-zinc-800"
+                className="btn-primary flex w-full items-center justify-center"
               >
                 Sign Up
               </button>
             </div>
-            <p className="mt-6 text-center text-sm text-zinc-600">
+            <p className="mt-6 text-center text-sm text-slate-400">
               Already have an account?{" "}
               <Link
                 href="/login"
-                className="font-medium text-zinc-900 underline-offset-2 hover:underline"
+                className="font-medium text-amber-300 underline-offset-2 hover:underline"
               >
                 Sign in
               </Link>
