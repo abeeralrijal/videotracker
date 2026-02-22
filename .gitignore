@@ -1,0 +1,10 @@
+# OS
+.DS_Store
+
+# Backend (see backend/.gitignore for full list)
+backend/.env
+backend/venv/
+
+# Frontend (see frontend/.gitignore for full list)
+frontend/node_modules/
+frontend/.next/
